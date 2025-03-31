@@ -32,9 +32,21 @@ try:
 	sql = ("SELECT id, name, cpf FROM user")
 	cursor.execute(sql)
 	for (id, name, cpf) in cursor:
-		print(id, name, cpf)
+		print(id, name, cpf)		
 	cursor.close()
 	db_connection.commit()
+
+
+	cursor = db_connection.cursor()
+	sql = ("SELECT id, name, cpf FROM user")
+	cursor.execute(sql)
+	resultados = cursor.fetchall()
+	print(resultados)
+	for (id, name, cpf) in resultados:
+		print(id, name, cpf)		
+	cursor.close()
+
+
     #db_connection.close()
 
 except mysql.connector.Error as error:
